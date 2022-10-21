@@ -62,12 +62,10 @@ const Header = () => {
                                 </div>
 
                         }
-
-
-                        <Link to='/profile' className='d-flex align-items-center fw-semibold'>
+                        <Link to='/profile' className='d-flex align-items-center fw-semibold text-dark'>
                             {user?.photoURL ?
                                 <>
-                                    <img style={{ height: '35px' }} className='rounded-circle mx-3' src={user?.photoURL} alt="" />
+                                    <img style={{ height: '35px', width: '35px', objectFit: 'cover' }} className='cover rounded-circle mx-3' src={user?.photoURL} alt="" />
                                 </>
                                 :
                                 <FaUserCheck className=' fs-4 ms-3' />

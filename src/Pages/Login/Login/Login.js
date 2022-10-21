@@ -11,7 +11,7 @@ const Login = () => {
     const location = useLocation();
     const from = location.state?.form?.pathname || '/';
 
-    const { signIn, setLoading } = useContext(AuthContext);
+    const { signIn } = useContext(AuthContext);
     const navigate = useNavigate();
 
     const handleSignIn = (event) => {
@@ -25,21 +25,22 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 setError('');
-                if (user?.emailVerified) {
-                    navigate(from, { replace: true });
-                }
-                else {
-                    toast.error('OPPs..... Your Email is not varified...!!')
-                }
+                toast("Successfully Log in")
+                // if (user?.emailVerified) {
+                navigate(from, { replace: true });
+                // }
+                // else {
+                //     toast.error('OPPs..... Your Email is not varified...!!')
+                // }
 
                 form.reset();
             })
             .catch(error => {
                 setError(error.message);
             })
-            .finally(() => {
-                setLoading(false);
-            })
+        // .finally(() => {
+        //     setLoading(false);
+        // })
 
 
     }
